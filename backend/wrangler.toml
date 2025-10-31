@@ -1,0 +1,24 @@
+name = "collab-text-editor-backend"
+main = "src/cf-index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+NODE_ENV = "production"
+JWT_SECRET = "your-production-jwt-secret-change-this"
+CORS_ORIGIN = "https://collab-text-editor-frontend.pages.dev"
+FRONTEND_URL = "https://collab-text-editor-frontend.pages.dev"
+
+[durable_objects]
+bindings = [
+  { name = "DOCUMENT_ROOM", class_name = "DocumentRoom" }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "collab-text-editor-db"
+database_id = "79a5f087-78b8-4a7d-898e-4e099152c397"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DocumentRoom"]
